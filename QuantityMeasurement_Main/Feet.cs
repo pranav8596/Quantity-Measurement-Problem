@@ -20,6 +20,10 @@ namespace QuantityMeasurement_Main
         /// <returns></returns>
         public override bool Equals(object obj)
         {
+            if(obj == null)
+            {
+                return false;
+            }
             Feet feet = (Feet)obj;
             return feet.value == value;
         }        
