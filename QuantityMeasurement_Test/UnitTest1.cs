@@ -22,14 +22,26 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When the object is null, should return false
+        /// When the second object is null, should return false
         /// </summary>
         [Test]
-        public void GivenFeetAndFeet_WhenOneNull_ShouldReturnEqual()
+        public void GivenFeetAndFeet_WhenSecondNull_ShouldReturnFalse()
         {
             Feet feet1 = new Feet(0.0);
             Feet feet2 = null;
             bool isEqual = feet1.Equals(feet2);
+            Assert.IsFalse(isEqual);
+        }
+
+        /// <summary>
+        /// When the first object is null, should return false
+        /// </summary>
+        [Test]
+        public void GivenFeetAndFeet_WhenFirstNull_ShouldReturnFalse()
+        {
+            Feet feet1 = null;
+            Feet feet2 = new Feet(0.0);
+            bool isEqual = feet2.Equals(feet1);
             Assert.IsFalse(isEqual);
         }
     }
