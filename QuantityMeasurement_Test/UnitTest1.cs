@@ -44,5 +44,17 @@ namespace QuantityMeasurement_Test
             bool isEqual = feet2.Equals(feet1);
             Assert.IsFalse(isEqual);
         }
+
+        /// <summary>
+        /// When both reference is same, should return true
+        /// </summary>
+        [Test]
+        public void GivenFeetAndFeet_WhenSameReference_ShouldReturnTrue()
+        {
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = feet1;
+            bool isEqual = feet1.Equals(feet2);
+            Assert.IsTrue(isEqual);
+        }
     }
 }

@@ -8,6 +8,10 @@ namespace QuantityMeasurement_Main
     {
         public double value;
 
+        public Feet()
+        {
+        }
+
         public Feet(double value)
         {
             this.value = value;
