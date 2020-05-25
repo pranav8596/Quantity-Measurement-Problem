@@ -51,7 +51,7 @@ namespace QuantityMeasurement_Test
         /// When both reference is same, should return true
         /// </summary>
         [Test]
-        public void GivenFeetAndFeet_WhenSameReference_ShouldReturnTrue()
+        public void GivenFeetAndFeet_WhenSameReference_ShouldReturnEqual()
         {
             Feet feet1 = new Feet(0.0);
             Feet feet2 = feet1;          
@@ -62,7 +62,7 @@ namespace QuantityMeasurement_Test
         /// When both objects are of same type , should return true
         /// </summary>
         [Test]
-        public void GivenFeetAndFeet_WhenSameType_ShouldReturnTrue()
+        public void GivenFeetAndFeet_WhenSameType_ShouldReturnEqual()
         {
             Feet feet1 = new Feet(0.0);
             Feet feet2 = new Feet(0.0);
@@ -80,6 +80,17 @@ namespace QuantityMeasurement_Test
             Feet feet1 = new Feet(2.0);
             Feet feet2 = new Feet(2.0);
             Assert.AreEqual(feet1, feet2);
+        }
+
+        /// <summary>
+        /// When both feets are not equal , should return false
+        /// </summary>
+        [Test]
+        public void GivenFeetAndFeet_WhenNotEqual_ShouldReturnNotEqual()
+        {
+            Feet feet1 = new Feet(2.0);
+            Feet feet2 = new Feet(1.0);
+            Assert.AreNotEqual(feet1, feet2);
         }
     }
 }
