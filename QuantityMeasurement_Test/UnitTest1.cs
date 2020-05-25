@@ -32,6 +32,7 @@ namespace QuantityMeasurement_Test
             Feet feet2 = null;
             bool isEqual = feet1.Equals(feet2);
             Assert.IsFalse(isEqual);
+
         }
 
         /// <summary>
@@ -53,9 +54,8 @@ namespace QuantityMeasurement_Test
         public void GivenFeetAndFeet_WhenSameReference_ShouldReturnTrue()
         {
             Feet feet1 = new Feet(0.0);
-            Feet feet2 = feet1;
-            bool isEqual = feet1.Equals(feet2);
-            Assert.IsTrue(isEqual);
+            Feet feet2 = feet1;          
+            Assert.AreEqual(feet1, feet2);
         }
 
         /// <summary>
@@ -69,6 +69,17 @@ namespace QuantityMeasurement_Test
             Type type1 = feet1.GetType();
             Type type2 = feet2.GetType();
             Assert.AreEqual(type1, type2);        
+        }
+
+        /// <summary>
+        /// When both feets are equal , should return true
+        /// </summary>
+        [Test]
+        public void GivenFeetAndFeet_WhenEqual_ShouldReturnEqual()
+        {
+            Feet feet1 = new Feet(2.0);
+            Feet feet2 = new Feet(2.0);
+            Assert.AreEqual(feet1, feet2);
         }
     }
 }
