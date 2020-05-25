@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using QuantityMeasurement_Main;
+using System;
 
 namespace QuantityMeasurement_Test
 {
@@ -55,6 +56,19 @@ namespace QuantityMeasurement_Test
             Feet feet2 = feet1;
             bool isEqual = feet1.Equals(feet2);
             Assert.IsTrue(isEqual);
+        }
+
+        /// <summary>
+        /// When both objects are of same type , should return true
+        /// </summary>
+        [Test]
+        public void GivenFeetAndFeet_WhenSameType_ShouldReturnTrue()
+        {
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = new Feet(0.0);
+            Type type1 = feet1.GetType();
+            Type type2 = feet2.GetType();
+            Assert.AreEqual(type1, type2);        
         }
     }
 }
