@@ -178,7 +178,7 @@ namespace QuantityMeasurement_Test
         /// Given two Inches when 0, should return equal
         /// </summary>
         [Test]
-        public void GivenFeetAndInch_WhenEqual_ShouldReturnNotEqual()
+        public void GivenFeetAndInch_ShouldReturnNotEqual()
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
