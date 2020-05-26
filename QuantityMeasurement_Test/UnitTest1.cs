@@ -355,5 +355,17 @@ namespace QuantityMeasurement_Test
             Assert.IsFalse(compareCheck);
         }
 
+        /// <summary>
+        /// Compared 1 inch and 1 yard which should return not equal
+        /// </summary>
+        [Test]
+        public void Given1InchAnd1Yard_WhenCompared_ShouldReturnEqual()
+        {
+            Length inch1 = new Length(Length.Unit.INCH, 1.0);
+            Length yard1 = new Length(Length.Unit.YARD, 1.0);
+            bool compareCheck = inch1.Compare(yard1);
+            Assert.IsFalse(compareCheck);
+        }
+
     }
 } 
