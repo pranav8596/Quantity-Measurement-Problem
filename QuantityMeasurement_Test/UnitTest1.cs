@@ -294,5 +294,18 @@ namespace QuantityMeasurement_Test
             bool compareCheck = inch1.Compare(feet1);
             Assert.IsTrue(compareCheck);
         }
+
+        /// <summary>
+        /// Compared 3 feet and 1 yard  which should return equal
+        /// </summary>
+        [Test]
+        public void Given3FeetAnd1Yard_WhenCompared_ShouldReturnEqual()
+        {
+            Length feet1 = new Length(Length.Unit.FEET, 3.0);
+            Length yard1 = new Length(Length.Unit.YARD, 1.0);
+            bool compareCheck = feet1.Compare(yard1);
+            Assert.IsTrue(compareCheck);
+        }
+
     }
 } 
