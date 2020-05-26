@@ -114,7 +114,18 @@ namespace QuantityMeasurement_Test
             Inch inch2 = null;
             bool isEqual = inch1.Equals(inch2);
             Assert.IsFalse(isEqual);
+        }
 
+        /// <summary>
+        /// When the first inch object is null, should return false
+        /// </summary>
+        [Test]
+        public void GivenInchAndInch_WhenFirstNull_ShouldReturnFalse()
+        {
+            Inch inch1 = null;
+            Inch inch2 = new Inch(0.0); ;
+            bool isEqual = inch2.Equals(inch1);
+            Assert.IsFalse(isEqual);
         }
     }
 }
