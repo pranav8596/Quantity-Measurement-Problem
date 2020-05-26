@@ -158,8 +158,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenEqual_ShouldReturnFalse()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(0.0);
+            Inch inch1 = new Inch(3.0);
+            Inch inch2 = new Inch(3.0);
             Assert.AreEqual(inch1, inch2);
         }
     }
