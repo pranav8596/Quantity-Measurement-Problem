@@ -97,11 +97,24 @@ namespace QuantityMeasurement_Test
         /// Given two Inches when 0, should return equal
         /// </summary>
         [Test]
-        public void GivenInchAndInch_WhenSecondNull_ShouldReturnFalse()
+        public void GivenInchAndInch_When0_ShouldReturnFalse()
         {
             Inch inch1 = new Inch(0.0);
             Inch inch2 = new Inch(0.0);
             Assert.AreEqual(inch1, inch2);
+        }
+
+        /// <summary>
+        /// When the second inch object is null, should return false
+        /// </summary>
+        [Test]
+        public void GivenInchAndInch_WhenSecondNull_ShouldReturnFalse()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = null;
+            bool isEqual = inch1.Equals(inch2);
+            Assert.IsFalse(isEqual);
+
         }
     }
 }
