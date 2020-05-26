@@ -156,11 +156,22 @@ namespace QuantityMeasurement_Test
         /// Given inches when equal, should return equal
         /// </summary>
         [Test]
-        public void GivenInchAndInch_WhenEqual_ShouldReturnFalse()
+        public void GivenInchAndInch_WhenEqual_ShouldReturnEqual()
         {
             Inch inch1 = new Inch(3.0);
             Inch inch2 = new Inch(3.0);
             Assert.AreEqual(inch1, inch2);
+        }
+
+        /// <summary>
+        /// Given inches when not equal, should return false
+        /// </summary>
+        [Test]
+        public void GivenInchAndInch_WhenNotEqual_ShouldReturnFalse()
+        {
+            Inch inch1 = new Inch(3.0);
+            Inch inch2 = new Inch(1.0);
+            Assert.AreNotEqual(inch1, inch2);
         }
     }
 }
