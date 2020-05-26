@@ -7,9 +7,14 @@ namespace QuantityMeasurement_Main
     public class Length
     {
         public const double FeetToInch = 12.0;
+        public const double InchToFeet = 12.0;
+
         public Unit unit;
         public double value;
 
+        /// <summary>
+        /// Enums for the Units
+        /// </summary>
         public enum Unit
         {
             FEET, INCH
@@ -25,7 +30,12 @@ namespace QuantityMeasurement_Main
             this.value = value;
         }
 
-        public bool compare(Length that)
+        /// <summary>
+        /// To compare the units
+        /// </summary>
+        /// <param name="that"></param>
+        /// <returns></returns>
+        public bool Compare(Length that)
         {
 
             if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.FEET) || this.unit.Equals(Unit.INCH) && that.unit.Equals(Unit.INCH))
@@ -35,7 +45,12 @@ namespace QuantityMeasurement_Main
 
             if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.INCH))
             {
-                return this.value * FeetToInch.CompareTo(that.value) == 0;
+                return (this.value*FeetToInch).CompareTo(that.value) == 0;
+            }
+
+            if (this.unit.Equals(Unit.INCH) && that.unit.Equals(Unit.FEET))
+            {
+                return (this.value/InchToFeet).CompareTo(that.value) == 0;
             }
             return false;
         }

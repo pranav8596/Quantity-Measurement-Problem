@@ -193,8 +193,56 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 0.0);
             Length inch1 = new Length(Length.Unit.INCH, 0.0);
-            bool compareCheck = feet1.compare(inch1);
+            bool compareCheck = feet1.Compare(inch1);
             Assert.IsTrue(compareCheck);
+        }
+       
+        /// <summary>
+        /// Compared 1 feet amd 1 feet which should return true
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1Feet_WhenCompared_ShouldReturnTrue()
+        {
+            Length feet1 = new Length(Length.Unit.FEET, 1.0);
+            Length feet2 = new Length(Length.Unit.FEET, 1.0);
+            bool compareCheck = feet1.Compare(feet2);
+            Assert.IsTrue(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 1 feet amd 5 feet which should return false
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd5Feet_WhenCompared_ShouldReturnFalse()
+        {
+            Length feet1 = new Length(Length.Unit.FEET, 2.0);
+            Length feet2 = new Length(Length.Unit.FEET, 5.0);
+            bool compareCheck = feet1.Compare(feet2);
+            Assert.IsFalse(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 1 inch amd 1 inch which should return true
+        /// </summary>
+        [Test]
+        public void Given1InchAnd1Inch_WhenCompared_ShouldReturnTrue()
+        {
+            Length inch1 = new Length(Length.Unit.INCH, 1.0);
+            Length inch2 = new Length(Length.Unit.INCH, 1.0);
+            bool compareCheck = inch1.Compare(inch2);
+            Assert.IsTrue(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 1 inch amd 5 inch which should return false
+        /// </summary>
+        [Test]
+        public void Given1InchAnd5Inch_WhenCompared_ShouldReturnFalse()
+        {
+            Length feet1 = new Length(Length.Unit.FEET, 1.0);
+            Length feet2 = new Length(Length.Unit.FEET, 5.0);
+            bool compareCheck = feet1.Compare(feet2);
+            Assert.IsFalse(compareCheck);
         }
 
         /// <summary>
@@ -205,56 +253,44 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
-            bool compareCheck = feet1.compare(inch1);
+            bool compareCheck = feet1.Compare(inch1);
             Assert.IsFalse(compareCheck);
         }
 
         /// <summary>
-        /// Compared 1 feet amd 1 feet which should return true
+        /// Compared 1 inch amd 1 feet which should return false
         /// </summary>
         [Test]
-        public void Given1FeetAnd1Feet_WhenCompared_ShouldReturnTrue()
+        public void Given1InchAnd1Feet_WhenCompared_ShouldReturnFalse()
         {
-            Length feet1 = new Length(Length.Unit.FEET, 1.0);
-            Length inch1 = new Length(Length.Unit.FEET, 1.0);
-            bool compareCheck = feet1.compare(inch1);
-            Assert.IsTrue(compareCheck);
-        }
-
-        /// <summary>
-        /// Compared 1 feet amd 5 feet which should return false
-        /// </summary>
-        [Test]
-        public void Given1FeetAnd5Feet_WhenCompared_ShouldReturnFalse()
-        {
-            Length feet1 = new Length(Length.Unit.FEET, 1.0);
-            Length inch1 = new Length(Length.Unit.FEET, 5.0);
-            bool compareCheck = feet1.compare(inch1);
-            Assert.IsFalse(compareCheck);
-        }
-
-        /// <summary>
-        /// Compared 1 inch amd 1 inch which should return true
-        /// </summary>
-        [Test]
-        public void Given1InchAnd1Inch_WhenCompared_ShouldReturnTrue()
-        {
-            Length feet1 = new Length(Length.Unit.INCH, 1.0);
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
-            bool compareCheck = feet1.compare(inch1);
+            Length feet1 = new Length(Length.Unit.FEET, 1.0);
+            bool compareCheck = inch1.Compare(feet1);
+            Assert.IsFalse(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 1 feet amd 12 inch which should return true
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd12Inch_WhenCompared_ShouldReturnEqual()
+        {
+            Length feet1 = new Length(Length.Unit.FEET, 1.0);
+            Length inch1 = new Length(Length.Unit.INCH, 12.0);
+            bool compareCheck = feet1.Compare(inch1);
             Assert.IsTrue(compareCheck);
         }
 
         /// <summary>
-        /// Compared 1 inch amd 5 inch which should return false
+        /// Compared 12 inch and 1 feet  which should return true
         /// </summary>
         [Test]
-        public void Given1InchAndInch_WhenCompared_ShouldReturnFalse()
+        public void Given12InchAnd1Feet_WhenCompared_ShouldReturnEqual()
         {
+            Length inch1 = new Length(Length.Unit.INCH, 12.0);
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
-            Length inch1 = new Length(Length.Unit.FEET, 5.0);
-            bool compareCheck = feet1.compare(inch1);
-            Assert.IsFalse(compareCheck);
+            bool compareCheck = inch1.Compare(feet1);
+            Assert.IsTrue(compareCheck);
         }
     }
 } 
