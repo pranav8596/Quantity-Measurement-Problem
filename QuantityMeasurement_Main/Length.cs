@@ -10,6 +10,9 @@ namespace QuantityMeasurement_Main
         public const double InchToFeet = 12.0;
         public const double FeetToYard = 3.0;
         public const double YardToFeet = 3.0;
+        public const double YardToInch = 36.0;
+        public const double InchToYard = 36.0;
+
 
         public Unit unit;
         public double value;
@@ -65,6 +68,11 @@ namespace QuantityMeasurement_Main
             if (this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.FEET))
             {
                 return (this.value * FeetToYard).CompareTo(that.value) == 0;
+            }
+
+            if (this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.INCH))
+            {
+                return (this.value * YardToInch).CompareTo(that.value) == 0;
             }
             return false;
         }
