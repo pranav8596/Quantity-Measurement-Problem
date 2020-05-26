@@ -41,6 +41,11 @@ namespace QuantityMeasurement_Main
             }
             Length length = (Length)obj;
             return length.value == value && unit == length.unit;
-        }        
+        }
+
+        public bool compare(Length inch1)
+        {
+            return true;
+        }
     }
 }

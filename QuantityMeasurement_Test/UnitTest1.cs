@@ -184,5 +184,14 @@ namespace QuantityMeasurement_Test
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
             Assert.AreNotEqual(feet1, inch1);
         }
+
+        [Test]
+        public void Given0FeetAnd0Inch_ShouldReturnTrue()
+        {
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
+            bool compareCheck = feet1.compare(inch1);
+            Assert.IsTrue(compareCheck);
+        }
     }
-}
+} 
