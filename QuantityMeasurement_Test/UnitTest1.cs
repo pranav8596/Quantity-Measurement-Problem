@@ -11,8 +11,9 @@ namespace QuantityMeasurement_Test
         {
         }
 
+        ///Test for FEETs
         /// <summary>
-        /// Check if two Feet objects are equal
+        /// Check if two Feets are 0, return equal
         /// </summary>
         [Test]
         public void GivenFeetAndFeet_WhenBoth0_ShouldReturnEqual()
@@ -23,7 +24,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When the second object is null, should return false
+        /// When the second feet is null, should return false
         /// </summary>
         [Test]
         public void GivenFeetAndFeet_WhenSecondNull_ShouldReturnFalse()
@@ -36,7 +37,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When the first object is null, should return false
+        /// When the first feet is null, should return false
         /// </summary>
         [Test]
         public void GivenFeetAndFeet_WhenFirstNull_ShouldReturnFalse()
@@ -48,7 +49,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When both reference is same, should return true
+        /// When both feet reference is same, should return equal
         /// </summary>
         [Test]
         public void GivenFeetAndFeet_WhenSameReference_ShouldReturnEqual()
@@ -59,7 +60,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When both objects are of same type , should return true
+        /// When both feets are of same type , should return equal
         /// </summary>
         [Test]
         public void GivenFeetAndFeet_WhenSameType_ShouldReturnEqual()
@@ -72,27 +73,28 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When both feets are equal , should return true
+        /// Given feets when equal, should return equal
         /// </summary>
         [Test]
         public void GivenFeetAndFeet_WhenEqual_ShouldReturnEqual()
         {
-            Length feet1 = new Length(Length.Unit.FEET,2.0);
-            Length feet2 = new Length(Length.Unit.FEET,2.0);
+            Length feet1 = new Length(Length.Unit.FEET, 3.0);
+            Length feet2 = new Length(Length.Unit.FEET, 3.0);
             Assert.AreEqual(feet1, feet2);
         }
 
         /// <summary>
-        /// When both feets are not equal , should return false
+        /// Given feets when not equal, should return not equal
         /// </summary>
         [Test]
         public void GivenFeetAndFeet_WhenNotEqual_ShouldReturnNotEqual()
         {
-            Length feet1 = new Length(Length.Unit.FEET,2.0);
-            Length feet2 = new Length(Length.Unit.FEET,1.0);
-            Assert.AreNotEqual(feet1, feet2);
+            Length inch1 = new Length(Length.Unit.FEET, 3.0);
+            Length inch2 = new Length(Length.Unit.FEET, 1.0);
+            Assert.AreNotEqual(inch1, inch2);
         }
 
+        ///Test for INCHES
         /// <summary>
         /// Given two Inches when 0, should return equal
         /// </summary>
@@ -105,7 +107,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When the second inch object is null, should return false
+        /// When the second inch is null, should return false
         /// </summary>
         [Test]
         public void GivenInchAndInch_WhenSecondNull_ShouldReturnFalse()
@@ -117,7 +119,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When the first inch object is null, should return false
+        /// When the first inch is null, should return false
         /// </summary>
         [Test]
         public void GivenInchAndInch_WhenFirstNull_ShouldReturnFalse()
@@ -129,7 +131,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When both inch reference is same, should return true
+        /// When both inch reference is same, should return equal
         /// </summary>
         [Test]
         public void GivenInchAndInch_WhenSameReference_ShouldReturnEqual()
@@ -140,7 +142,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// When both inch having of same type , should return true
+        /// When both inch having of same type , should return equal
         /// </summary>
         [Test]
         public void GivenInchAndInch_WhenSameType_ShouldReturnEqual()
@@ -167,7 +169,7 @@ namespace QuantityMeasurement_Test
         /// Given inches when not equal, should return false
         /// </summary>
         [Test]
-        public void GivenInchAndInch_WhenNotEqual_ShouldReturnFalse()
+        public void GivenInchAndInch_WhenNotEqual_ShouldReturnNotEqual()
         {
             Length inch1 = new Length(Length.Unit.INCH, 3.0);
             Length inch2 = new Length(Length.Unit.INCH, 1.0);
@@ -178,7 +180,7 @@ namespace QuantityMeasurement_Test
         /// Given two Inches when 0, should return equal
         /// </summary>
         [Test]
-        public void GivenFeetAndInch_ShouldReturnNotEqual()
+        public void Given1FeetAnd1Inch_ShouldReturnNotEqual()
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
@@ -213,7 +215,7 @@ namespace QuantityMeasurement_Test
         /// Compared 1 feet amd 5 feet which should return false
         /// </summary>
         [Test]
-        public void Given1FeetAnd5Feet_WhenCompared_ShouldReturnFalse()
+        public void Given2FeetAnd5Feet_WhenCompared_ShouldReturnFalse()
         {
             Length feet1 = new Length(Length.Unit.FEET, 2.0);
             Length feet2 = new Length(Length.Unit.FEET, 5.0);
