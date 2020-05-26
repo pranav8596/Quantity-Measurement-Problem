@@ -127,5 +127,16 @@ namespace QuantityMeasurement_Test
             bool isEqual = inch2.Equals(inch1);
             Assert.IsFalse(isEqual);
         }
+
+        /// <summary>
+        /// When both inch reference is same, should return true
+        /// </summary>
+        [Test]
+        public void GivenInchAndInch_WhenSameReference_ShouldReturnEqual()
+        {
+            Inch inch1 = new Inch(0.0); ;
+            Inch inch2 = inch1;
+            Assert.AreEqual(inch1, inch2);
+        }
     }
 }
