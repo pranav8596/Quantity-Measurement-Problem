@@ -27,6 +27,12 @@ namespace QuantityMeasurement_Main
 
         public bool compare(Length that)
         {
+
+            if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.FEET) || this.unit.Equals(Unit.INCH) && that.unit.Equals(Unit.INCH))
+            {
+                return this.value.CompareTo(that.value) == 0;
+            }
+
             if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.INCH))
             {
                 return this.value * FeetToInch.CompareTo(that.value) == 0;
