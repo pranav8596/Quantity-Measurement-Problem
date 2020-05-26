@@ -97,7 +97,7 @@ namespace QuantityMeasurement_Test
         /// Given two Inches when 0, should return equal
         /// </summary>
         [Test]
-        public void GivenInchAndInch_When0_ShouldReturnFalse()
+        public void GivenInchAndInch_When0_ShouldReturnEqual()
         {
             Inch inch1 = new Inch(0.0);
             Inch inch2 = new Inch(0.0);
@@ -150,6 +150,17 @@ namespace QuantityMeasurement_Test
             Type type1 = inch1.GetType();
             Type type2 = inch2.GetType();
             Assert.AreEqual(type1, type2);
+        }
+
+        /// <summary>
+        /// Given inches when equal, should return equal
+        /// </summary>
+        [Test]
+        public void GivenInchAndInch_WhenEqual_ShouldReturnFalse()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = new Inch(0.0);
+            Assert.AreEqual(inch1, inch2);
         }
     }
 }
