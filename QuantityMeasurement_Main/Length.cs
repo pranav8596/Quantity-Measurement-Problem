@@ -61,6 +61,11 @@ namespace QuantityMeasurement_Main
             {
                 return (this.value / FeetToYard).CompareTo(that.value) == 0;
             }
+
+            if (this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.FEET))
+            {
+                return (this.value * FeetToYard).CompareTo(that.value) == 0;
+            }
             return false;
         }
 

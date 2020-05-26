@@ -307,5 +307,17 @@ namespace QuantityMeasurement_Test
             Assert.IsTrue(compareCheck);
         }
 
+        /// <summary>
+        /// Compared 1 yard and 3 feets  which should return equal
+        /// </summary>
+        [Test]
+        public void Given1YardAnd3Feets_WhenCompared_ShouldReturnEqual()
+        {
+            Length yard1 = new Length(Length.Unit.YARD, 1.0);
+            Length feet1 = new Length(Length.Unit.FEET, 3.0);
+            bool compareCheck = yard1.Compare(feet1);
+            Assert.IsTrue(compareCheck);
+        }
+
     }
 } 
