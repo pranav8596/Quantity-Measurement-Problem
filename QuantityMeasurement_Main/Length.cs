@@ -6,13 +6,14 @@ namespace QuantityMeasurement_Main
 {
     public class Length
     {
+        public const double FeetToInch = 12.0;
+        public Unit unit;
+        public double value;
+
         public enum Unit
         {
             FEET, INCH
         }
-
-        public Unit unit;
-        public double value;
 
         public Length()
         {
@@ -22,6 +23,15 @@ namespace QuantityMeasurement_Main
         {
             this.unit = unit;
             this.value = value;
+        }
+
+        public bool compare(Length that)
+        {
+            if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.INCH))
+            {
+                return this.value * FeetToInch.CompareTo(that.value) == 0;
+            }
+            return false;
         }
 
         /// <summary>
@@ -43,9 +53,6 @@ namespace QuantityMeasurement_Main
             return length.value == value && unit == length.unit;
         }
 
-        public bool compare(Length inch1)
-        {
-            return true;
-        }
+       
     }
-}
+} 

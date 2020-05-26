@@ -185,13 +185,28 @@ namespace QuantityMeasurement_Test
             Assert.AreNotEqual(feet1, inch1);
         }
 
+        /// <summary>
+        /// Compared 0 feet amd 0 inch which should return true
+        /// </summary>
         [Test]
-        public void Given0FeetAnd0Inch_ShouldReturnTrue()
+        public void Given0FeetAnd0Inch_WhenCompared_ShouldReturnTrue()
         {
             Length feet1 = new Length(Length.Unit.FEET, 0.0);
             Length inch1 = new Length(Length.Unit.INCH, 0.0);
             bool compareCheck = feet1.compare(inch1);
             Assert.IsTrue(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 1 feet amd 1 inch which should return false
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1Inch_WhenCompared_ShouldReturnFalse()
+        {
+            Length feet1 = new Length(Length.Unit.FEET, 1.0);
+            Length inch1 = new Length(Length.Unit.INCH, 1.0);
+            bool compareCheck = feet1.compare(inch1);
+            Assert.IsFalse(compareCheck);
         }
     }
 } 
