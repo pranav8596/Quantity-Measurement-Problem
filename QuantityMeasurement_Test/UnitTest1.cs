@@ -92,5 +92,16 @@ namespace QuantityMeasurement_Test
             Feet feet2 = new Feet(1.0);
             Assert.AreNotEqual(feet1, feet2);
         }
+
+        /// <summary>
+        /// Given two Inches when 0, should return equal
+        /// </summary>
+        [Test]
+        public void GivenInchAndInch_WhenSecondNull_ShouldReturnFalse()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = new Inch(0.0);
+            Assert.AreEqual(inch1, inch2);
+        }
     }
 }
