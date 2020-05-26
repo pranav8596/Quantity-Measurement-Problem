@@ -138,5 +138,18 @@ namespace QuantityMeasurement_Test
             Inch inch2 = inch1;
             Assert.AreEqual(inch1, inch2);
         }
+
+        /// <summary>
+        /// When both inch having of same type , should return true
+        /// </summary>
+        [Test]
+        public void GivenInchAndInch_WhenSameType_ShouldReturnEqual()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = new Inch(0.0);
+            Type type1 = inch1.GetType();
+            Type type2 = inch2.GetType();
+            Assert.AreEqual(type1, type2);
+        }
     }
 }
