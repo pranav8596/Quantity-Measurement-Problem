@@ -17,8 +17,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenBoth0_ShouldReturnEqual()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = new Feet(0.0);
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length feet2 = new Length(Length.Unit.FEET,0.0);
             Assert.AreEqual(feet1, feet2);
         }
 
@@ -28,8 +28,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenSecondNull_ShouldReturnFalse()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = null;
+            Length feet1 = new Length(Length.Unit.FEET,0.0);
+            Length feet2 = null;
             bool isEqual = feet1.Equals(feet2);
             Assert.IsFalse(isEqual);
 
@@ -41,8 +41,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenFirstNull_ShouldReturnFalse()
         {
-            Feet feet1 = null;
-            Feet feet2 = new Feet(0.0);
+            Length feet1 = null;
+            Length feet2 = new Length(Length.Unit.FEET,0.0);
             bool isEqual = feet2.Equals(feet1);
             Assert.IsFalse(isEqual);
         }
@@ -53,8 +53,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenSameReference_ShouldReturnEqual()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = feet1;          
+            Length feet1 = new Length(Length.Unit.FEET,0.0);
+            Length feet2 = feet1;          
             Assert.AreEqual(feet1, feet2);
         }
 
@@ -64,8 +64,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenSameType_ShouldReturnEqual()
         {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = new Feet(0.0);
+            Length feet1 = new Length(Length.Unit.FEET,0.0);
+            Length feet2 = new Length(Length.Unit.FEET,0.0);
             Type type1 = feet1.GetType();
             Type type2 = feet2.GetType();
             Assert.AreEqual(type1, type2);        
@@ -77,8 +77,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenEqual_ShouldReturnEqual()
         {
-            Feet feet1 = new Feet(2.0);
-            Feet feet2 = new Feet(2.0);
+            Length feet1 = new Length(Length.Unit.FEET,2.0);
+            Length feet2 = new Length(Length.Unit.FEET,2.0);
             Assert.AreEqual(feet1, feet2);
         }
 
@@ -88,8 +88,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenNotEqual_ShouldReturnNotEqual()
         {
-            Feet feet1 = new Feet(2.0);
-            Feet feet2 = new Feet(1.0);
+            Length feet1 = new Length(Length.Unit.FEET,2.0);
+            Length feet2 = new Length(Length.Unit.FEET,1.0);
             Assert.AreNotEqual(feet1, feet2);
         }
 
@@ -99,8 +99,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_When0_ShouldReturnEqual()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(0.0);
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
+            Length inch2 = new Length(Length.Unit.INCH, 0.0);
             Assert.AreEqual(inch1, inch2);
         }
 
@@ -110,8 +110,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenSecondNull_ShouldReturnFalse()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = null;
+            Length inch1 = new Length(Length.Unit.INCH,0.0);
+            Length inch2 = null;
             bool isEqual = inch1.Equals(inch2);
             Assert.IsFalse(isEqual);
         }
@@ -122,8 +122,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenFirstNull_ShouldReturnFalse()
         {
-            Inch inch1 = null;
-            Inch inch2 = new Inch(0.0); ;
+            Length inch1 = null;
+            Length inch2 = new Length(Length.Unit.INCH, 0.0); ;
             bool isEqual = inch2.Equals(inch1);
             Assert.IsFalse(isEqual);
         }
@@ -134,8 +134,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenSameReference_ShouldReturnEqual()
         {
-            Inch inch1 = new Inch(0.0); ;
-            Inch inch2 = inch1;
+            Length inch1 = new Length(Length.Unit.INCH, 0.0); ;
+            Length inch2 = inch1;
             Assert.AreEqual(inch1, inch2);
         }
 
@@ -145,8 +145,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenSameType_ShouldReturnEqual()
         {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(0.0);
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
+            Length inch2 = new Length(Length.Unit.INCH, 0.0);
             Type type1 = inch1.GetType();
             Type type2 = inch2.GetType();
             Assert.AreEqual(type1, type2);
@@ -158,8 +158,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenEqual_ShouldReturnEqual()
         {
-            Inch inch1 = new Inch(3.0);
-            Inch inch2 = new Inch(3.0);
+            Length inch1 = new Length(Length.Unit.INCH, 3.0);
+            Length inch2 = new Length(Length.Unit.INCH, 3.0);
             Assert.AreEqual(inch1, inch2);
         }
 
@@ -169,8 +169,8 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenNotEqual_ShouldReturnFalse()
         {
-            Inch inch1 = new Inch(3.0);
-            Inch inch2 = new Inch(1.0);
+            Length inch1 = new Length(Length.Unit.INCH, 3.0);
+            Length inch2 = new Length(Length.Unit.INCH, 1.0);
             Assert.AreNotEqual(inch1, inch2);
         }
     }

@@ -4,16 +4,23 @@ using System.Text;
 
 namespace QuantityMeasurement_Main
 {
-    public class Feet
+    public class Length
     {
+        public enum Unit
+        {
+            FEET, INCH
+        }
+
+        public Unit unit;
         public double value;
 
-        public Feet()
+        public Length()
         {
         }
 
-        public Feet(double value)
+        public Length(Unit unit, double value)
         {
+            this.unit = unit;
             this.value = value;
         }
 
@@ -28,8 +35,12 @@ namespace QuantityMeasurement_Main
             {
                 return false;
             }
-            Feet feet = (Feet)obj;
-            return feet.value == value;
+            if (obj == this)
+            {
+                return true;
+            }
+            Length length = (Length)obj;
+            return length.value == value && unit == length.unit;
         }        
     }
 }
