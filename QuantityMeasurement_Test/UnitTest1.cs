@@ -434,5 +434,18 @@ namespace QuantityMeasurement_Test
             bool additionCheck = length.addition(inch1, inch2, inch3);
             Assert.IsTrue(additionCheck);
         }
+
+        /// <summary>
+        /// Addition 2 inches and 2.5 cms which should return 3 inch
+        /// </summary>
+        [Test]
+        public void Given1InchAnd2point5CMS_WhenAdded_ShouldReturn3Inch()
+        {
+            Length inch1 = new Length(Length.Unit.INCH, 2.0);
+            Length inch2 = new Length(Length.Unit.CMS, 2.5);
+            Length inch3 = new Length(Length.Unit.INCH, 3.0);
+            bool additionCheck = length.addition(inch1, inch2, inch3);
+            Assert.IsTrue(additionCheck);
+        }
     }
 }
