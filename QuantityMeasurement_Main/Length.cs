@@ -81,13 +81,13 @@ namespace QuantityMeasurement_Main
             return Math.Round(unit1.value * baseUnit1).CompareTo(Math.Round(unit2.value * baseUnit2)) == 0;
         }
 
-        public bool addition(Length unit1, Length unit2, Length unit3)
+        public double addition(Length unit1, Length unit2)
         {
             double baseUnit1 = GetUnitsFloatValue(unit1.unit);
             double baseUnit2 = GetUnitsFloatValue(unit2.unit);
-            double baseUnit3 = GetUnitsFloatValue(unit3.unit);
-            double additio1 = Math.Round(unit1.value * baseUnit1) + Math.Round(unit2.value * baseUnit2);
-            return additio1.CompareTo(Math.Round(unit3.value * baseUnit3)) == 0;
+            //double baseUnit3 = GetUnitsFloatValue(unit3.unit);
+            return Math.Round(unit1.value * baseUnit1) + Math.Round(unit2.value * baseUnit2);
+            //return additio1.CompareTo(Math.Round(unit3.value * baseUnit3)) == 0;
         }
 
         /// <summary>

@@ -404,9 +404,8 @@ namespace QuantityMeasurement_Test
         {
             Length inch1 = new Length(Length.Unit.INCH, 2.0);
             Length inch2 = new Length(Length.Unit.INCH, 2.0);
-            Length inch3 = new Length(Length.Unit.INCH, 4.0);
-            bool additionCheck = length.addition(inch1, inch2, inch3);
-            Assert.IsTrue(additionCheck);
+            double additionCheck = length.addition(inch1, inch2);
+            Assert.AreEqual(4, additionCheck);
         }
 
         /// <summary>
@@ -415,11 +414,10 @@ namespace QuantityMeasurement_Test
         [Test]
         public void Given1FeetAnd2Inches_WhenAdded_ShouldReturn14Inch()
         {
-            Length inch1 = new Length(Length.Unit.FEET, 1.0);
+            Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length inch2 = new Length(Length.Unit.INCH, 2.0);
-            Length inch3 = new Length(Length.Unit.INCH, 14.0);
-            bool additionCheck = length.addition(inch1, inch2, inch3);
-            Assert.IsTrue(additionCheck);
+            double additionCheck = length.addition(feet1, inch2);
+            Assert.AreEqual(14, additionCheck);
         }
 
         /// <summary>
@@ -428,11 +426,10 @@ namespace QuantityMeasurement_Test
         [Test]
         public void Given1FeetAnd1Feet_WhenAdded_ShouldReturn24Inch()
         {
-            Length inch1 = new Length(Length.Unit.FEET, 1.0);
-            Length inch2 = new Length(Length.Unit.FEET, 1.0);
-            Length inch3 = new Length(Length.Unit.INCH, 24.0);
-            bool additionCheck = length.addition(inch1, inch2, inch3);
-            Assert.IsTrue(additionCheck);
+            Length feet1 = new Length(Length.Unit.FEET, 1.0);
+            Length feet2 = new Length(Length.Unit.FEET, 1.0);
+            double additionCheck = length.addition(feet1, feet2);
+            Assert.AreEqual(24, additionCheck);
         }
 
         /// <summary>
@@ -442,10 +439,9 @@ namespace QuantityMeasurement_Test
         public void Given1InchAnd2point5CMS_WhenAdded_ShouldReturn3Inch()
         {
             Length inch1 = new Length(Length.Unit.INCH, 2.0);
-            Length inch2 = new Length(Length.Unit.CMS, 2.5);
-            Length inch3 = new Length(Length.Unit.INCH, 3.0);
-            bool additionCheck = length.addition(inch1, inch2, inch3);
-            Assert.IsTrue(additionCheck);
+            Length cms2 = new Length(Length.Unit.CMS, 2.5);
+            double additionCheck = length.addition(inch1, cms2);
+            Assert.AreEqual(3, additionCheck);
         }
     }
 }
