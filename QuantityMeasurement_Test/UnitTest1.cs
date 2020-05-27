@@ -397,7 +397,7 @@ namespace QuantityMeasurement_Test
         }
 
         /// <summary>
-        /// Added 2 inch and 2 inch which should return 4 inch
+        /// Addition of 2 inch and 2 inch should return 4 inch
         /// </summary>
         [Test]
         public void Given2InchAnd2Inch_WhenAdded_ShouldReturn4Inch()
@@ -405,6 +405,19 @@ namespace QuantityMeasurement_Test
             Length inch1 = new Length(Length.Unit.INCH, 2.0);
             Length inch2 = new Length(Length.Unit.INCH, 2.0);
             Length inch3 = new Length(Length.Unit.INCH, 4.0);
+            bool additionCheck = length.addition(inch1, inch2, inch3);
+            Assert.IsTrue(additionCheck);
+        }
+
+        /// <summary>
+        /// Addition 1 feet and 2 inches which should return 14 inch
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd2Inches_WhenAdded_ShouldReturn14Inch()
+        {
+            Length inch1 = new Length(Length.Unit.FEET, 1.0);
+            Length inch2 = new Length(Length.Unit.INCH, 2.0);
+            Length inch3 = new Length(Length.Unit.INCH, 14.0);
             bool additionCheck = length.addition(inch1, inch2, inch3);
             Assert.IsTrue(additionCheck);
         }
