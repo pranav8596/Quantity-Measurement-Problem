@@ -14,7 +14,7 @@ namespace QuantityMeasurement_Main
         /// </summary>
         public enum Unit
         {
-            INCH, FEET, YARD
+            INCH, FEET, YARD, CMS
         }
 
         public Length()
@@ -48,6 +48,8 @@ namespace QuantityMeasurement_Main
                     return 12;
                 case Unit.YARD:
                     return 36;
+                case Unit.CMS:
+                    return 0.4;
                 default:
                     return 0;
             }
