@@ -6,9 +6,11 @@ namespace QuantityMeasurement_Test
 {
     public class Tests
     {
+        Length length = null;
         [SetUp]
         public void Setup()
         {
+            length = new Length();
         }
 
         ///Test for FEETs
@@ -19,7 +21,7 @@ namespace QuantityMeasurement_Test
         public void GivenFeetAndFeet_WhenBoth0_ShouldReturnEqual()
         {
             Length feet1 = new Length(Length.Unit.FEET, 0.0);
-            Length feet2 = new Length(Length.Unit.FEET,0.0);
+            Length feet2 = new Length(Length.Unit.FEET, 0.0);
             Assert.AreEqual(feet1, feet2);
         }
 
@@ -29,7 +31,7 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenSecondNull_ShouldReturnFalse()
         {
-            Length feet1 = new Length(Length.Unit.FEET,0.0);
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
             Length feet2 = null;
             bool isEqual = feet1.Equals(feet2);
             Assert.IsFalse(isEqual);
@@ -43,7 +45,7 @@ namespace QuantityMeasurement_Test
         public void GivenFeetAndFeet_WhenFirstNull_ShouldReturnFalse()
         {
             Length feet1 = null;
-            Length feet2 = new Length(Length.Unit.FEET,0.0);
+            Length feet2 = new Length(Length.Unit.FEET, 0.0);
             bool isEqual = feet2.Equals(feet1);
             Assert.IsFalse(isEqual);
         }
@@ -54,8 +56,9 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenSameReference_ShouldReturnEqual()
         {
-            Length feet1 = new Length(Length.Unit.FEET,0.0);
-            Length feet2 = feet1;          
+            
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length feet2 = feet1;
             Assert.AreEqual(feet1, feet2);
         }
 
@@ -65,11 +68,11 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenSameType_ShouldReturnEqual()
         {
-            Length feet1 = new Length(Length.Unit.FEET,0.0);
-            Length feet2 = new Length(Length.Unit.FEET,0.0);
+            Length feet1 = new Length(Length.Unit.FEET, 0.0);
+            Length feet2 = new Length(Length.Unit.FEET, 0.0);
             Type type1 = feet1.GetType();
             Type type2 = feet2.GetType();
-            Assert.AreEqual(type1, type2);        
+            Assert.AreEqual(type1, type2);
         }
 
         /// <summary>
@@ -112,7 +115,7 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenInchAndInch_WhenSecondNull_ShouldReturnFalse()
         {
-            Length inch1 = new Length(Length.Unit.INCH,0.0);
+            Length inch1 = new Length(Length.Unit.INCH, 0.0);
             Length inch2 = null;
             bool isEqual = inch1.Equals(inch2);
             Assert.IsFalse(isEqual);
@@ -195,10 +198,10 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 0.0);
             Length inch1 = new Length(Length.Unit.INCH, 0.0);
-            bool compareCheck = feet1.Compare(inch1);
+            bool compareCheck = length.UnitConversion(feet1, inch1);
             Assert.IsTrue(compareCheck);
         }
-       
+
         /// <summary>
         /// Compared 1 feet amd 1 feet which should return true
         /// </summary>
@@ -207,7 +210,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length feet2 = new Length(Length.Unit.FEET, 1.0);
-            bool compareCheck = feet1.Compare(feet2);
+            bool compareCheck = length.UnitConversion(feet1, feet2);
             Assert.IsTrue(compareCheck);
         }
 
@@ -219,7 +222,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 2.0);
             Length feet2 = new Length(Length.Unit.FEET, 5.0);
-            bool compareCheck = feet1.Compare(feet2);
+            bool compareCheck = length.UnitConversion(feet1, feet2);
             Assert.IsFalse(compareCheck);
         }
 
@@ -231,7 +234,7 @@ namespace QuantityMeasurement_Test
         {
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
             Length inch2 = new Length(Length.Unit.INCH, 1.0);
-            bool compareCheck = inch1.Compare(inch2);
+            bool compareCheck = length.UnitConversion(inch1, inch2);
             Assert.IsTrue(compareCheck);
         }
 
@@ -243,7 +246,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length feet2 = new Length(Length.Unit.FEET, 5.0);
-            bool compareCheck = feet1.Compare(feet2);
+            bool compareCheck = length.UnitConversion(feet1, feet2);
             Assert.IsFalse(compareCheck);
         }
 
@@ -255,7 +258,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
-            bool compareCheck = feet1.Compare(inch1);
+            bool compareCheck = length.UnitConversion(feet1, inch1);
             Assert.IsFalse(compareCheck);
         }
 
@@ -267,7 +270,7 @@ namespace QuantityMeasurement_Test
         {
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
-            bool compareCheck = inch1.Compare(feet1);
+            bool compareCheck = length.UnitConversion(inch1, feet1);
             Assert.IsFalse(compareCheck);
         }
 
@@ -278,8 +281,9 @@ namespace QuantityMeasurement_Test
         public void Given1FeetAnd12Inch_WhenCompared_ShouldReturnEqual()
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
-            Length inch1 = new Length(Length.Unit.INCH, 12.0);
-            bool compareCheck = feet1.Compare(inch1);
+            Length inch1 = new Length(Length.Unit.INCH, 12.0);            
+            bool compareCheck =length.UnitConversion(feet1, inch1);
+            //  bool compareCheck = feet1.Compare(inch1);
             Assert.IsTrue(compareCheck);
         }
 
@@ -291,7 +295,7 @@ namespace QuantityMeasurement_Test
         {
             Length inch1 = new Length(Length.Unit.INCH, 12.0);
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
-            bool compareCheck = inch1.Compare(feet1);
+            bool compareCheck = length.UnitConversion(inch1, feet1);
             Assert.IsTrue(compareCheck);
         }
 
@@ -303,7 +307,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 3.0);
             Length yard1 = new Length(Length.Unit.YARD, 1.0);
-            bool compareCheck = feet1.Compare(yard1);
+            bool compareCheck = length.UnitConversion(feet1, yard1);
             Assert.IsTrue(compareCheck);
         }
 
@@ -313,9 +317,10 @@ namespace QuantityMeasurement_Test
         [Test]
         public void Given1YardAnd3Feets_WhenCompared_ShouldReturnEqual()
         {
+
             Length yard1 = new Length(Length.Unit.YARD, 1.0);
             Length feet1 = new Length(Length.Unit.FEET, 3.0);
-            bool compareCheck = yard1.Compare(feet1);
+            bool compareCheck = length.UnitConversion(yard1, feet1);
             Assert.IsTrue(compareCheck);
         }
 
@@ -327,7 +332,7 @@ namespace QuantityMeasurement_Test
         {
             Length yard1 = new Length(Length.Unit.YARD, 1.0);
             Length inch1 = new Length(Length.Unit.INCH, 36.0);
-            bool compareCheck = yard1.Compare(inch1);
+            bool compareCheck = length.UnitConversion(inch1, yard1);
             Assert.IsTrue(compareCheck);
         }
 
@@ -339,7 +344,7 @@ namespace QuantityMeasurement_Test
         {
             Length inch1 = new Length(Length.Unit.INCH, 36.0);
             Length yard1 = new Length(Length.Unit.YARD, 1.0);
-            bool compareCheck = inch1.Compare(yard1);
+            bool compareCheck = length.UnitConversion(inch1, yard1);
             Assert.IsTrue(compareCheck);
         }
 
@@ -351,7 +356,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length yard1 = new Length(Length.Unit.YARD, 1.0);
-            bool compareCheck = feet1.Compare(yard1);
+            bool compareCheck = length.UnitConversion(feet1, yard1);
             Assert.IsFalse(compareCheck);
         }
 
@@ -359,13 +364,13 @@ namespace QuantityMeasurement_Test
         /// Compared 1 inch and 1 yard which should return not equal
         /// </summary>
         [Test]
-        public void Given1InchAnd1Yard_WhenCompared_ShouldReturnEqual()
+        public void Given1InchAnd1Yard_WhenCompared_ShouldReturnFalse()
         {
             Length inch1 = new Length(Length.Unit.INCH, 1.0);
             Length yard1 = new Length(Length.Unit.YARD, 1.0);
-            bool compareCheck = inch1.Compare(yard1);
+            bool compareCheck = length.UnitConversion(inch1, yard1);
             Assert.IsFalse(compareCheck);
         }
 
     }
-} 
+}

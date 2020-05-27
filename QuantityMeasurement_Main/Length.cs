@@ -6,14 +6,6 @@ namespace QuantityMeasurement_Main
 {
     public class Length
     {
-        public const double FeetToInch = 12.0;
-        public const double InchToFeet = 12.0;
-        public const double FeetToYard = 3.0;
-        public const double YardToFeet = 3.0;
-        public const double YardToInch = 36.0;
-        public const double InchToYard = 36.0;
-
-
         public Unit unit;
         public double value;
 
@@ -22,64 +14,69 @@ namespace QuantityMeasurement_Main
         /// </summary>
         public enum Unit
         {
-            FEET, INCH, YARD
+            INCH, FEET, YARD
         }
 
         public Length()
         {
         }
 
+        /// <summary>
+        /// Parameterized constructor
+        /// </summary>
+        /// <param name="unit"></param>
+        /// <param name="value"></param>
         public Length(Unit unit, double value)
         {
+
             this.unit = unit;
             this.value = value;
         }
 
         /// <summary>
-        /// To compare the units
+        /// To get the baseunits of units
         /// </summary>
-        /// <param name="that"></param>
+        /// <param name="unit"></param>
         /// <returns></returns>
-        public bool Compare(Length that)
+        private double GetUnitsFloatValue(Unit unit)
         {
-
-            if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.FEET) ||
-                this.unit.Equals(Unit.INCH) && that.unit.Equals(Unit.INCH) || 
-                this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.YARD))
+            switch (unit)
             {
-                return this.value.CompareTo(that.value) == 0;
+                case Unit.INCH:
+                    return 1;
+                case Unit.FEET:
+                    return 12;
+                case Unit.YARD:
+                    return 36;
+                default:
+                    return 0;
             }
+        }
 
-            if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.INCH))
-            {
-                return (this.value * FeetToInch).CompareTo(that.value) == 0;
-            }
+        /// <summary>
+        /// To convert the values of the units
+        /// </summary>
+        /// <param name="unit1"></param>
+        /// <param name="unit2"></param>
+        /// <returns></returns>
+        public bool UnitConversion(Length unit1, Length unit2)
+        {
+            double baseUnit1 = GetUnitsFloatValue(unit1.unit);
+            double baseUnit2 = GetUnitsFloatValue(unit2.unit);
+            return CompareUnits(unit1, unit2, baseUnit1, baseUnit2);
+        }
 
-            if (this.unit.Equals(Unit.INCH) && that.unit.Equals(Unit.FEET))
-            {
-                return (this.value / InchToFeet).CompareTo(that.value) == 0;
-            }
-
-            if (this.unit.Equals(Unit.FEET) && that.unit.Equals(Unit.YARD))
-            {
-                return (this.value / FeetToYard).CompareTo(that.value) == 0;
-            }
-
-            if (this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.FEET))
-            {
-                return (this.value * FeetToYard).CompareTo(that.value) == 0;
-            }
-
-            if (this.unit.Equals(Unit.YARD) && that.unit.Equals(Unit.INCH))
-            {
-                return (this.value * YardToInch).CompareTo(that.value) == 0;
-            }
-
-            if (this.unit.Equals(Unit.INCH) && that.unit.Equals(Unit.YARD))
-            {
-                return (this.value / YardToInch).CompareTo(that.value) == 0;
-            }
-            return false;
+        /// <summary>
+        /// To compare the values of the units
+        /// </summary>
+        /// <param name="unit1"></param>
+        /// <param name="unit2"></param>
+        /// <param name="baseUnit1"></param>
+        /// <param name="baseUnit2"></param>
+        /// <returns></returns>
+        private bool CompareUnits(Length unit1, Length unit2, double baseUnit1, double baseUnit2)
+        {
+            return Math.Round(unit1.value * baseUnit1).CompareTo(Math.Round(unit2.value * baseUnit2)) == 0;
         }
 
         /// <summary>
@@ -100,7 +97,5 @@ namespace QuantityMeasurement_Main
             Length length = (Length)obj;
             return length.value == value && unit == length.unit;
         }
-
-
     }
 }
