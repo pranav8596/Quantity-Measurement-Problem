@@ -395,5 +395,18 @@ namespace QuantityMeasurement_Test
             bool compareCheck = length.UnitConversion(inch1, cms1);
             Assert.IsFalse(compareCheck);
         }
+
+        /// <summary>
+        /// Added 2 inch and 2 inch which should return 4 inch
+        /// </summary>
+        [Test]
+        public void Given2InchAnd2Inch_WhenAdded_ShouldReturn4Inch()
+        {
+            Length inch1 = new Length(Length.Unit.INCH, 2.0);
+            Length inch2 = new Length(Length.Unit.INCH, 2.0);
+            Length inch3 = new Length(Length.Unit.INCH, 4.0);
+            bool additionCheck = length.addition(inch1, inch2, inch3);
+            Assert.IsTrue(additionCheck);
+        }
     }
 }
