@@ -491,5 +491,29 @@ namespace QuantityMeasurement_Test
             bool compareCheck = length.UnitConversion(litre1, ml1);
             Assert.IsFalse(compareCheck);
         }
+
+        /// <summary>
+        /// Addition of 1 Gallon and 3.78 litres should return 7.56 Litres
+        /// </summary>
+        [Test]
+        public void Given1GallonAnd3point78Litres_WhenAdded_ShouldReturn7point56Inch()
+        {
+            Length gallon1 = new Length(Length.Unit.GALLON, 1.0);
+            Length litre1 = new Length(Length.Unit.LITRE, 3.78);
+            double additionCheck = length.addition(gallon1, litre1);
+            Assert.AreEqual(8.0, additionCheck);
+
+        }
+            /// <summary>
+            /// Addition of 1 Litre and 1000 ml should return 2 Litres
+            /// </summary>
+        [Test]
+        public void Given1LitreAnd1000Ml_WhenAdded_ShouldReturn2Litres()
+        {
+            Length litre1 = new Length(Length.Unit.LITRE, 1.0);
+            Length ml1 = new Length(Length.Unit.ML, 1000.0);
+            double additionCheck = length.addition(litre1, ml1);
+            Assert.AreEqual(2.0, additionCheck);
+        }
     }
 }
