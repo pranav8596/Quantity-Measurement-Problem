@@ -421,5 +421,18 @@ namespace QuantityMeasurement_Test
             bool additionCheck = length.addition(inch1, inch2, inch3);
             Assert.IsTrue(additionCheck);
         }
+
+        /// <summary>
+        /// Addition 1 feet and 1 feet which should return 24 inch
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1Feet_WhenAdded_ShouldReturn24Inch()
+        {
+            Length inch1 = new Length(Length.Unit.FEET, 1.0);
+            Length inch2 = new Length(Length.Unit.FEET, 1.0);
+            Length inch3 = new Length(Length.Unit.INCH, 24.0);
+            bool additionCheck = length.addition(inch1, inch2, inch3);
+            Assert.IsTrue(additionCheck);
+        }
     }
 }
