@@ -443,5 +443,53 @@ namespace QuantityMeasurement_Test
             double additionCheck = length.addition(inch1, cms2);
             Assert.AreEqual(3, additionCheck);
         }
+
+        /// <summary>
+        /// Compared 1 gallon and 3.78 litres which should return True
+        /// </summary>
+        [Test]
+        public void Given1GallonAnd3point78Litres_WhenCompared_ShouldReturnTrue()
+        {           
+            Length gallon1 = new Length(Length.Unit.GALLON, 1.0);
+            Length litre1 = new Length(Length.Unit.LITRE, 3.78);
+            bool compareCheck = length.UnitConversion(gallon1, litre1);
+            Assert.IsTrue(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 3 gallon and 3.78 litres which should return False
+        /// </summary>
+        [Test]
+        public void Given3GallonAnd3point78Litres_WhenCompared_ShouldReturnFalse()
+        {
+            Length gallon1 = new Length(Length.Unit.GALLON, 3.0);
+            Length litre1 = new Length(Length.Unit.LITRE, 3.78);
+            bool compareCheck = length.UnitConversion(gallon1, litre1);
+            Assert.IsFalse(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 1 litre and 1000 ml which should return True
+        /// </summary>
+        [Test]
+        public void Given1LitreAnd1000Ml_WhenCompared_ShouldReturnTrue()
+        {          
+            Length litre1 = new Length(Length.Unit.LITRE, 1.0);
+            Length ml1 = new Length(Length.Unit.ML, 1000.0);
+            bool compareCheck = length.UnitConversion(litre1, ml1);
+            Assert.IsTrue(compareCheck);
+        }
+
+        /// <summary>
+        /// Compared 1 litre and 2000 ml which should return True
+        /// </summary>
+        [Test]
+        public void Given1LitreAnd2000Ml_WhenCompared_ShouldReturnTrue()
+        {
+            Length litre1 = new Length(Length.Unit.LITRE, 1.0);
+            Length ml1 = new Length(Length.Unit.ML, 2000.0);
+            bool compareCheck = length.UnitConversion(litre1, ml1);
+            Assert.IsFalse(compareCheck);
+        }
     }
 }

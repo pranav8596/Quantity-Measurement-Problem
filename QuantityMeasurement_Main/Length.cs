@@ -14,7 +14,7 @@ namespace QuantityMeasurement_Main
         /// </summary>
         public enum Unit
         {
-            INCH, FEET, YARD, CMS
+            INCH, FEET, YARD, CMS, GALLON, LITRE, ML
         }
 
         public Length()
@@ -50,6 +50,12 @@ namespace QuantityMeasurement_Main
                     return 36;
                 case Unit.CMS:
                     return 0.4;
+                case Unit.GALLON:
+                    return 3.78;
+                case Unit.LITRE:
+                    return 1;
+                case Unit.ML:
+                    return 0.001;
                 default:
                     return 0;
             }
@@ -85,9 +91,7 @@ namespace QuantityMeasurement_Main
         {
             double baseUnit1 = GetUnitsFloatValue(unit1.unit);
             double baseUnit2 = GetUnitsFloatValue(unit2.unit);
-            //double baseUnit3 = GetUnitsFloatValue(unit3.unit);
             return Math.Round(unit1.value * baseUnit1) + Math.Round(unit2.value * baseUnit2);
-            //return additio1.CompareTo(Math.Round(unit3.value * baseUnit3)) == 0;
         }
 
         /// <summary>
