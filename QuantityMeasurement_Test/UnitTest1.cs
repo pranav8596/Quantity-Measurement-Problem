@@ -383,5 +383,17 @@ namespace QuantityMeasurement_Test
             bool compareCheck = length.UnitConversion(inch1, cms1);
             Assert.IsTrue(compareCheck);
         }
+
+        /// <summary>
+        /// Compared 5 inch and 5 Cms which should return False
+        /// </summary>
+        [Test]
+        public void Given1InchAnd1Cms_WhenCompared_ShouldReturnFalse ()
+        {
+            Length inch1 = new Length(Length.Unit.INCH, 5.0);
+            Length cms1 = new Length(Length.Unit.CMS, 5.0);
+            bool compareCheck = length.UnitConversion(inch1, cms1);
+            Assert.IsFalse(compareCheck);
+        }
     }
 }
