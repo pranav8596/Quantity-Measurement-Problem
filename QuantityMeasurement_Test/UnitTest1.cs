@@ -516,5 +516,17 @@ namespace QuantityMeasurement_Test
             double additionCheck = length.Addition(litre1, ml1);
             Assert.AreEqual(2.0, additionCheck);
         }
+
+        /// <summary>
+        /// Compared 1 Kg and 1000 grams which should return True
+        /// </summary>
+        [Test]
+        public void Given1KgAnd1000Grams_WhenCompared_ShouldReturnTrue()
+        {
+            Length kgs1 = new Length(Length.Unit.KG, 1.0);
+            Length grams1 = new Length(Length.Unit.GRAM, 1000.0);
+            bool compareCheck = length.UnitConversion(kgs1, grams1);
+            Assert.IsTrue(compareCheck);
+        }
     }
 }
