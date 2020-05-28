@@ -102,14 +102,15 @@ namespace QuantityMeasurement_Main
 
         public bool TempConversion(Length temp1, Length temp2)
         {
-            if(temp1.unit.Equals(Unit.FAHRENHEIT) && temp2.unit.Equals(Unit.CELSIUS))
+            if (temp1.unit.Equals(Unit.FAHRENHEIT) && temp2.unit.Equals(Unit.CELSIUS))
             {
                 return ((temp1.value - 32) * 5 / 9).CompareTo(temp2.value) == 0;
             }
-            else
+            else if (temp1.unit.Equals(Unit.CELSIUS) && temp2.unit.Equals(Unit.FAHRENHEIT))
             {
-                return false;
+                return ((temp1.value * 9 / 5) + 32).CompareTo(temp2.value) == 0;
             }
+            return false;
         }
         /// <summary>
         /// Override equals method
@@ -130,6 +131,6 @@ namespace QuantityMeasurement_Main
             return length.value == value && unit == length.unit;
         }
 
-       
+
     }
 }

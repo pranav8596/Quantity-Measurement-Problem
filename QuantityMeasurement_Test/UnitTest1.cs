@@ -579,6 +579,29 @@ namespace QuantityMeasurement_Test
             bool compareCheck = length.TempConversion(temp1, temp2);
             Assert.IsTrue(compareCheck);
         }
+      
+        /// <summary>
+        /// Compared 100 Celsius and 212 Fahrenheit which should return True
+        /// </summary>
+        [Test]
+        public void Given100CelsiusAnd212Fahrenheit_WhenCompared_ShouldReturnTrue()
+        {
+            Length temp1 = new Length(Length.Unit.CELSIUS, 100.0);
+            Length temp2 = new Length(Length.Unit.FAHRENHEIT, 212.0);
+            bool compareCheck = length.TempConversion(temp1, temp2);
+            Assert.IsTrue(compareCheck);
+        }
 
+        /// <summary>
+        /// Compared 100 Fahrenheit and 100 Celsius which should return False
+        /// </summary>
+        [Test]
+        public void Given100Fahrenheitand100Celsius_WhenCompared_ShouldReturnFalse()
+        {
+            Length temp1 = new Length(Length.Unit.FAHRENHEIT, 100.0);
+            Length temp2 = new Length(Length.Unit.CELSIUS, 100.0);
+            bool compareCheck = length.TempConversion(temp1, temp2);
+            Assert.IsFalse(compareCheck);
+        }
     }
 }
