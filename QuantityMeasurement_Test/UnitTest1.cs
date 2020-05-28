@@ -56,7 +56,7 @@ namespace QuantityMeasurement_Test
         [Test]
         public void GivenFeetAndFeet_WhenSameReference_ShouldReturnEqual()
         {
-            
+
             Length feet1 = new Length(Length.Unit.FEET, 0.0);
             Length feet2 = feet1;
             Assert.AreEqual(feet1, feet2);
@@ -281,8 +281,8 @@ namespace QuantityMeasurement_Test
         public void Given1FeetAnd12Inch_WhenCompared_ShouldReturnEqual()
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
-            Length inch1 = new Length(Length.Unit.INCH, 12.0);            
-            bool compareCheck =length.UnitConversion(feet1, inch1);
+            Length inch1 = new Length(Length.Unit.INCH, 12.0);
+            bool compareCheck = length.UnitConversion(feet1, inch1);
             //  bool compareCheck = feet1.Compare(inch1);
             Assert.IsTrue(compareCheck);
         }
@@ -388,7 +388,7 @@ namespace QuantityMeasurement_Test
         /// Compared 5 inch and 5 Cms which should return False
         /// </summary>
         [Test]
-        public void Given1InchAnd1Cms_WhenCompared_ShouldReturnFalse ()
+        public void Given1InchAnd1Cms_WhenCompared_ShouldReturnFalse()
         {
             Length inch1 = new Length(Length.Unit.INCH, 5.0);
             Length cms1 = new Length(Length.Unit.CMS, 5.0);
@@ -404,7 +404,7 @@ namespace QuantityMeasurement_Test
         {
             Length inch1 = new Length(Length.Unit.INCH, 2.0);
             Length inch2 = new Length(Length.Unit.INCH, 2.0);
-            double additionCheck = length.addition(inch1, inch2);
+            double additionCheck = length.Addition(inch1, inch2);
             Assert.AreEqual(4, additionCheck);
         }
 
@@ -416,7 +416,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length inch2 = new Length(Length.Unit.INCH, 2.0);
-            double additionCheck = length.addition(feet1, inch2);
+            double additionCheck = length.Addition(feet1, inch2);
             Assert.AreEqual(14, additionCheck);
         }
 
@@ -428,7 +428,7 @@ namespace QuantityMeasurement_Test
         {
             Length feet1 = new Length(Length.Unit.FEET, 1.0);
             Length feet2 = new Length(Length.Unit.FEET, 1.0);
-            double additionCheck = length.addition(feet1, feet2);
+            double additionCheck = length.Addition(feet1, feet2);
             Assert.AreEqual(24, additionCheck);
         }
 
@@ -440,7 +440,7 @@ namespace QuantityMeasurement_Test
         {
             Length inch1 = new Length(Length.Unit.INCH, 2.0);
             Length cms2 = new Length(Length.Unit.CMS, 2.5);
-            double additionCheck = length.addition(inch1, cms2);
+            double additionCheck = length.Addition(inch1, cms2);
             Assert.AreEqual(3, additionCheck);
         }
 
@@ -449,7 +449,7 @@ namespace QuantityMeasurement_Test
         /// </summary>
         [Test]
         public void Given1GallonAnd3point78Litres_WhenCompared_ShouldReturnTrue()
-        {           
+        {
             Length gallon1 = new Length(Length.Unit.GALLON, 1.0);
             Length litre1 = new Length(Length.Unit.LITRE, 3.78);
             bool compareCheck = length.UnitConversion(gallon1, litre1);
@@ -473,7 +473,7 @@ namespace QuantityMeasurement_Test
         /// </summary>
         [Test]
         public void Given1LitreAnd1000Ml_WhenCompared_ShouldReturnTrue()
-        {          
+        {
             Length litre1 = new Length(Length.Unit.LITRE, 1.0);
             Length ml1 = new Length(Length.Unit.ML, 1000.0);
             bool compareCheck = length.UnitConversion(litre1, ml1);
@@ -500,19 +500,20 @@ namespace QuantityMeasurement_Test
         {
             Length gallon1 = new Length(Length.Unit.GALLON, 1.0);
             Length litre1 = new Length(Length.Unit.LITRE, 3.78);
-            double additionCheck = length.addition(gallon1, litre1);
-            Assert.AreEqual(8.0, additionCheck);
+            double additionCheck = length.Addition(gallon1, litre1);
+            Assert.AreEqual(7.56, additionCheck);
 
         }
-            /// <summary>
-            /// Addition of 1 Litre and 1000 ml should return 2 Litres
-            /// </summary>
+
+        /// <summary>
+        /// Addition of 1 Litre and 1000 Ml should return 2 Litres
+        /// </summary>
         [Test]
         public void Given1LitreAnd1000Ml_WhenAdded_ShouldReturn2Litres()
         {
             Length litre1 = new Length(Length.Unit.LITRE, 1.0);
             Length ml1 = new Length(Length.Unit.ML, 1000.0);
-            double additionCheck = length.addition(litre1, ml1);
+            double additionCheck = length.Addition(litre1, ml1);
             Assert.AreEqual(2.0, additionCheck);
         }
     }

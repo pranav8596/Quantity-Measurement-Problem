@@ -84,14 +84,14 @@ namespace QuantityMeasurement_Main
         /// <returns></returns>
         private bool CompareUnits(Length unit1, Length unit2, double baseUnit1, double baseUnit2)
         {
-            return Math.Round(unit1.value * baseUnit1).CompareTo(Math.Round(unit2.value * baseUnit2)) == 0;
+            return (unit1.value * baseUnit1).CompareTo(unit2.value * baseUnit2) == 0;
         }
 
-        public double addition(Length unit1, Length unit2)
+        public double Addition(Length unit1, Length unit2)
         {
             double baseUnit1 = GetUnitsFloatValue(unit1.unit);
             double baseUnit2 = GetUnitsFloatValue(unit2.unit);
-            return Math.Round(unit1.value * baseUnit1) + Math.Round(unit2.value * baseUnit2);
+            return (unit1.value * baseUnit1) + (unit2.value * baseUnit2);
         }
 
         /// <summary>
