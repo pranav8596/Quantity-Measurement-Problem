@@ -540,5 +540,17 @@ namespace QuantityMeasurement_Test
             bool compareCheck = length.UnitConversion(tons1, kgs1);
             Assert.IsTrue(compareCheck);
         }
+
+        /// <summary>
+        /// Addition of 1 Litre and 1000 Ml should return 2 Litres
+        /// </summary>
+        [Test]
+        public void Given1TonAnd1000Grams_WhenAdded_ShouldReturn1001Kgs()
+        {
+            Length tons1 = new Length(Length.Unit.TON, 1.0);
+            Length grams1 = new Length(Length.Unit.GRAM, 1000.0);
+            double additionCheck = length.Addition(tons1, grams1);
+            Assert.AreEqual(1001.0, additionCheck);
+        }
     }
-}
+}   
