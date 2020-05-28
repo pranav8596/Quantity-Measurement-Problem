@@ -14,7 +14,7 @@ namespace QuantityMeasurement_Main
         /// </summary>
         public enum Unit
         {
-            INCH, FEET, YARD, CMS, GALLON, LITRE, ML, KG, GRAM, TON
+            INCH, FEET, YARD, CMS, GALLON, LITRE, ML, KG, GRAM, TON, FAHRENHEIT, CELSIUS
         }
 
         public Length()
@@ -100,6 +100,17 @@ namespace QuantityMeasurement_Main
             return (unit1.value * baseUnit1) + (unit2.value * baseUnit2);
         }
 
+        public bool TempConversion(Length temp1, Length temp2)
+        {
+            if(temp1.unit.Equals(Unit.FAHRENHEIT) && temp2.unit.Equals(Unit.CELSIUS))
+            {
+                return ((temp1.value - 32) * 5 / 9).CompareTo(temp2.value) == 0;
+            }
+            else
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// Override equals method
         /// </summary>
@@ -119,6 +130,6 @@ namespace QuantityMeasurement_Main
             return length.value == value && unit == length.unit;
         }
 
-
+       
     }
 }
