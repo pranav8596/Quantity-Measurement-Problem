@@ -528,5 +528,17 @@ namespace QuantityMeasurement_Test
             bool compareCheck = length.UnitConversion(kgs1, grams1);
             Assert.IsTrue(compareCheck);
         }
+
+        /// <summary>
+        /// Compared 1 Ton and 1000 Kgs which should return True
+        /// </summary>
+        [Test]
+        public void Given1TonAnd1000Kgs_WhenCompared_ShouldReturnTrue()
+        {
+            Length tons1 = new Length(Length.Unit.TON, 1.0);
+            Length kgs1 = new Length(Length.Unit.KG, 1000.0);
+            bool compareCheck = length.UnitConversion(tons1, kgs1);
+            Assert.IsTrue(compareCheck);
+        }
     }
 }

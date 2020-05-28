@@ -14,7 +14,7 @@ namespace QuantityMeasurement_Main
         /// </summary>
         public enum Unit
         {
-            INCH, FEET, YARD, CMS, GALLON, LITRE, ML, KG, GRAM
+            INCH, FEET, YARD, CMS, GALLON, LITRE, ML, KG, GRAM, TON
         }
 
         public Length()
@@ -60,6 +60,8 @@ namespace QuantityMeasurement_Main
                     return 1;
                 case Unit.GRAM:
                     return 0.001;
+                case Unit.TON:
+                    return 1000.0;
                 default:
                     return 0;
             }
