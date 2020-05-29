@@ -4,7 +4,7 @@ using System.Text;
 
 namespace QuantityMeasurement_Main
 {
-    public class Length
+    public class QuantityMeasurement
     {
         public Unit unit;
         public double value;
@@ -14,10 +14,21 @@ namespace QuantityMeasurement_Main
         /// </summary>
         public enum Unit
         {
-            INCH, FEET, YARD, CMS, GALLON, LITRE, ML, KG, GRAM, TON, FAHRENHEIT, CELSIUS
+            INCH, 
+            FEET, 
+            YARD, 
+            CMS, 
+            GALLON, 
+            LITRE, 
+            ML, 
+            KG, 
+            GRAM, 
+            TON, 
+            FAHRENHEIT, 
+            CELSIUS
         }
 
-        public Length()
+        public QuantityMeasurement()
         {
         }
 
@@ -26,7 +37,7 @@ namespace QuantityMeasurement_Main
         /// </summary>
         /// <param name="unit"></param>
         /// <param name="value"></param>
-        public Length(Unit unit, double value)
+        public QuantityMeasurement(Unit unit, double value)
         {
 
             this.unit = unit;
@@ -73,7 +84,7 @@ namespace QuantityMeasurement_Main
         /// <param name="unit1"></param>
         /// <param name="unit2"></param>
         /// <returns></returns>
-        public bool UnitConversion(Length unit1, Length unit2)
+        public bool UnitConversion(QuantityMeasurement unit1, QuantityMeasurement unit2)
         {
             double baseUnit1 = GetUnitsFloatValue(unit1.unit);
             double baseUnit2 = GetUnitsFloatValue(unit2.unit);
@@ -88,19 +99,19 @@ namespace QuantityMeasurement_Main
         /// <param name="baseUnit1"></param>
         /// <param name="baseUnit2"></param>
         /// <returns></returns>
-        private bool CompareUnits(Length unit1, Length unit2, double baseUnit1, double baseUnit2)
+        private bool CompareUnits(QuantityMeasurement unit1, QuantityMeasurement unit2, double baseUnit1, double baseUnit2)
         {
             return (unit1.value * baseUnit1).CompareTo(unit2.value * baseUnit2) == 0;
         }
 
-        public double Addition(Length unit1, Length unit2)
+        public double Addition(QuantityMeasurement unit1, QuantityMeasurement unit2)
         {
             double baseUnit1 = GetUnitsFloatValue(unit1.unit);
             double baseUnit2 = GetUnitsFloatValue(unit2.unit);
             return (unit1.value * baseUnit1) + (unit2.value * baseUnit2);
         }
 
-        public bool TempConversion(Length temp1, Length temp2)
+        public bool TempConversion(QuantityMeasurement temp1, QuantityMeasurement temp2)
         {
             if (temp1.unit.Equals(Unit.FAHRENHEIT) && temp2.unit.Equals(Unit.CELSIUS))
             {
@@ -112,6 +123,7 @@ namespace QuantityMeasurement_Main
             }
             return false;
         }
+
         /// <summary>
         /// Override equals method
         /// </summary>
@@ -127,10 +139,8 @@ namespace QuantityMeasurement_Main
             {
                 return true;
             }
-            Length length = (Length)obj;
+            QuantityMeasurement length = (QuantityMeasurement)obj;
             return length.value == value && unit == length.unit;
         }
-
-
     }
 }
